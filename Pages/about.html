@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Exclusive</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="/CSS/updated_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+   <!-- Header -->
+  <header class="main-header">
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="logo">Exclusive</div>
+
+    <nav class="navbar" id="mobile-nav">
+      <a href="home.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" placeholder="What are you looking for?" />
+        <i class="fa fa-search search-icon"></i>
+      </div>
+
+      <div id="header-cart" class="header-cart-dropdown"></div>
+
+      <div class="user-menu-wrapper">
+        <div class="user-icon" onclick="toggleUserMenu()">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <div id="user-dropdown" class="user-dropdown">
+          <img src="/Images/MY_FORMAL_IMG.jpg" alt="User" class="user-avatar">
+          <p class="user-name">Mahdy Daoud</p>
+          <p class="user-info">Age: 21</p>
+          <p class="user-info">Job: JS Full Stack Developer</p>
+          <button class="logout-btn" onclick="window.location.href='https://tinyurl.com/NTI-ST-FINAL-PROJECT'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+ <!-- Our Story Section -->
+<section class="our-story-section fade-up" style="padding: 80px 20px; background-color: #fff;">
+  <div style="
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  ">
+    <!-- Left Column - Text -->
+    <div style="flex: 1; min-width: 300px;">
+      <h2 style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">Our Story</h2>
+      <p style="font-size: 15px; color: #444; line-height: 1.8;">
+        Launched in 2015, Exclusive is South Asia’s premier online shopping marketplace with an active presence in Egypt. Supported by a wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sellers and 300 brands and serves 3 million customers across the region.<br><br>
+        Exclusive has more than 1 Million products to offer, growing at a very fast rate. Exclusive offers a diverse assortment in categories ranging from consumer electronics to fashion.
+      </p>
+    </div>
+
+    <!-- Right Column - Image -->
+    <div style="flex: 1; min-width: 300px;">
+      <img src="/Images/about.jpg" alt="Our Story Image" style="width: 100%; border-radius: 12px;">
+    </div>
+  </div>
+</section>
+
+
+<!-- Stats Cards Section -->
+<section class="stats-cards fade-up" style="padding: 60px 20px;">
+  <div style="
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  ">
+
+    <!-- Card 1 -->
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 30px; text-align: center;">
+      <div style="
+        background-color: #e6e6e6;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <i class="fa fa-store fa-lg"></i>
+      </div>
+      <div style="font-size: 24px; font-weight: 700;">10.5k</div>
+      <p style="color: #555;">Sallers active our site</p>
+    </div>
+
+    <!-- Card 2 (highlighted) -->
+    <div style="
+      background-color: #d62828;
+      color: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+    ">
+      <div style="
+        background-color: white;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d62828;
+      ">
+        <i class="fa fa-dollar-sign fa-lg"></i>
+      </div>
+      <div style="font-size: 24px; font-weight: 700;">33k</div>
+      <p>Monthly Product Sale</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 30px; text-align: center;">
+      <div style="
+        background-color: #e6e6e6;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <i class="fa fa-shopping-bag fa-lg"></i>
+      </div>
+      <div style="font-size: 24px; font-weight: 700;">45.5k</div>
+      <p style="color: #555;">Customer active in our site</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 30px; text-align: center;">
+      <div style="
+        background-color: #e6e6e6;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <i class="fa fa-sack-dollar fa-lg"></i>
+      </div>
+      <div style="font-size: 24px; font-weight: 700;">25k</div>
+      <p style="color: #555;">Annual gross sale in our site</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Team Members Section -->
+<section class="team-section fade-up" style="padding: 80px 20px; background: #fff;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Team Grid -->
+    <div style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      text-align: center;
+    ">
+      <!-- Member 1 -->
+      <div>
+        <img src="/Images/MY_FORMAL_IMG.jpg" alt="Mahdy Daoud" style="width: 70%; height: 70%; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+        <h3 style="font-size: 18px; font-weight: 600;">Mahdy Daoud</h3>
+        <p style="color: #555; font-size: 14px; margin-bottom: 10px;">Founder & Chairman</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/mahdy-daoud-m1/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+      </div>
+
+      <!-- Member 2 -->
+      <div>
+        <img src="/Images/Nada.jfif" alt="Emma Watson" style="width: 70%; border-radius: 12px; margin-bottom: 16px; height: 70%;">
+        <h3 style="font-size: 18px; font-weight: 600;">Nada Harby</h3>
+        <p style="color: #555; font-size: 14px; margin-bottom: 10px;">Managing Director</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/nada-harby/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Highlights Section -->
+<section class="service-highlights fade-up" style="background-color: #fafafa; padding: 60px 20px; text-align: center;">
+  <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; gap: 40px; flex-wrap: wrap;">
+    
+    <!-- Highlight 1 -->
+    <div style="flex: 1 1 250px; display: flex; flex-direction: column; align-items: center;">
+      <div style="
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #000;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border: 6px solid #ccc;
+        margin-bottom: 16px;
+      ">
+        <i class="fa fa-truck"></i>
+      </div>
+      <h4 style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 6px;">FREE AND FAST DELIVERY</h4>
+      <p style="font-size: 13px; color: #444;">Free delivery for all orders over $140</p>
+    </div>
+
+    <!-- Highlight 2 -->
+    <div style="flex: 1 1 250px; display: flex; flex-direction: column; align-items: center;">
+      <div style="
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #000;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border: 6px solid #ccc;
+        margin-bottom: 16px;
+      ">
+        <i class="fa fa-headphones-alt"></i>
+      </div>
+      <h4 style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 6px;">24/7 CUSTOMER SERVICE</h4>
+      <p style="font-size: 13px; color: #444;">Friendly 24/7 customer support</p>
+    </div>
+
+    <!-- Highlight 3 -->
+    <div style="flex: 1 1 250px; display: flex; flex-direction: column; align-items: center;">
+      <div style="
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #000;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border: 6px solid #ccc;
+        margin-bottom: 16px;
+      ">
+        <i class="fa fa-check-circle"></i>
+      </div>
+      <h4 style="font-size: 14px; font-weight: bold; color: #111; margin-bottom: 6px;">MONEY BACK GUARANTEE</h4>
+      <p style="font-size: 13px; color: #444;">We return money within 30 days</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="site-footer fade-up" style="background-color: #000; color: #fff; padding: 60px 20px 30px; font-size: 14px;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between;">
+    
+    <!-- Subscribe -->
+    <div class="footer-column">
+      <h4>Exclusive</h4>
+      <p>Subscribe</p>
+      <small>Get 10% off your first order</small>
+      <form class="subscribe-form" style="display: flex; margin-top: 10px;">
+        <input type="email" placeholder="Enter your email" style="padding: 8px; border: 1px solid #999; background: transparent; color: #fff; flex: 1;">
+        <button type="submit" style="background: #fff; color: #000; border: none; padding: 0 14px; cursor: pointer;">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Support -->
+        <div class="footer-column">
+        <h4>Support</h4>
+        <p>112 Tal Mansoura, Dakahliya,<br>DH 1515, Egypt.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+201127283385</p>
+        </div>
+
+    <!-- Download App -->
+    <div class="footer-column fade-up">
+      <h4>Follow Us</h4>
+      <small>Save $3 with App New User Only</small><br />
+      <div class="social-icons" style="margin-top: 10px;">
+        <a href="#"><i class="fab fa-facebook-f" style="color: #fff; margin-right: 10px;"></i></a>
+        <a href="#"><i class="fab fa-twitter" style="color: #fff; margin-right: 10px;"></i></a>
+        <a href="#"><i class="fab fa-instagram" style="color: #fff; margin-right: 10px;"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in" style="color: #fff;"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom" style="text-align: center; padding-top: 30px; border-top: 1px solid #333; font-size: 13px; color: #888;">
+    <p>&copy; Copyright Rimel 2022. All right reserved</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.our-story-section, .stats-cards, .team-section, .service-highlights, .site-footer')
+    .forEach(section => observer.observe(section));
+</script>
+
+
+  <script>
+    function toggleUserMenu() {
+      document.getElementById('user-dropdown').classList.toggle('show');
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+
+    window.addEventListener('click', function(e) {
+      if (!e.target.closest('.user-menu-wrapper')) {
+        document.getElementById('user-dropdown').classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

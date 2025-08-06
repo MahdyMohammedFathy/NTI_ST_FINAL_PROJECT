@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conact Us | Exclusive</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="/CSS/updated_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="logo">Exclusive</div>
+
+    <nav class="navbar" id="mobile-nav">
+      <a href="home.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" placeholder="What are you looking for?" />
+        <i class="fa fa-search search-icon"></i>
+      </div>
+
+      <div id="header-cart" class="header-cart-dropdown"></div>
+
+      <div class="user-menu-wrapper">
+        <div class="user-icon" onclick="toggleUserMenu()">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <div id="user-dropdown" class="user-dropdown">
+          <img src="/Images/MY_FORMAL_IMG.jpg" alt="User" class="user-avatar">
+          <p class="user-name">Mahdy Daoud</p>
+          <p class="user-info">Age: 21</p>
+          <p class="user-info">Job: JS Full Stack Developer</p>
+          <button class="logout-btn" onclick="window.location.href='https://tinyurl.com/NTI-ST-FINAL-PROJECT'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+<section class="contact-wrapper">
+  <div class="contact-box">
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="icon-circle">
+          <i class="fa fa-phone"></i>
+        </div>
+        <div class="info-text">
+          <h4>Call To Us</h4>
+          <p>We are available 24/7, 7 days a week.</p>
+          <p>Phone: +8801611112222</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-circle">
+          <i class="fa fa-envelope"></i>
+        </div>
+        <div class="info-text">
+          <h4>Write To Us</h4>
+          <p>Fill out our form and we will contact you within 24 hours.</p>
+          <p>Emails: customer@exclusive.com<br>support@exclusive.com</p>
+        </div>
+      </div>
+    </div>
+
+    <form id="contactForm" class="contact-form">
+    <div class="form-top">
+        <input type="text" placeholder="Your Name *" >
+        <input type="email" placeholder="Your Email *" >
+        <input type="text" placeholder="Your Phone *" >
+    </div>
+    <textarea placeholder="Your Message" rows="6" ></textarea>
+
+    <!-- Terms checkbox -->
+    <label style="margin-top: 10px;">
+        <input type="checkbox" id="termsCheckbox">
+        I agree to the <a href="#">terms & conditions</a>
+    </label>
+
+    <button type="submit" class="cta-button send-button">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <!-- Subscribe -->
+    <div class="footer-column">
+      <h4 class="logo lg">Exclusive</h4>
+      <p>Subscribe</p>
+      <small>Get 10% off your first order</small>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit"><i class="fa fa-paper-plane"></i></button>
+      </form>
+    </div>
+
+    <!-- Support -->
+        <div class="footer-column">
+        <h4>Support</h4>
+        <p>112 Tal Mansoura, Dakahliya,<br>DH 1515, Egypt.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+201127283385</p>
+        </div>
+
+    <!-- Follow Us -->
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <small>Save $3 with App New User Only</small><br />
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; Copyright Rimel 2022. All right reserved</p>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const form = document.getElementById("contactForm");
+  const checkbox = document.getElementById("termsCheckbox");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const inputs = form.querySelectorAll(".form-top input");
+    const messageInput = form.querySelector("textarea");
+
+    const name = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const phone = inputs[2].value.trim();
+    const message = messageInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // ✅ Fixed regex
+
+    // Validation checks
+    if (!name || !email || !phone || !message) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Missing Fields',
+        text: 'Please fill out all the fields before submitting.',
+        confirmButtonColor: '#d62828'
+      });
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Email',
+        text: 'Please enter a valid email address.',
+        confirmButtonColor: '#d62828'
+      });
+      return;
+    }
+
+    if (!checkbox.checked) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Terms Required',
+        text: 'You must agree to the terms and conditions.',
+        confirmButtonColor: '#d62828'
+      });
+      return;
+    }
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Message Sent!',
+      text: 'Thanks for reaching out to us. We will get back to you shortly.',
+      confirmButtonColor: '#d62828'
+    });
+
+    form.reset();
+  });
+</script>
+
+
+
+
+
+  <script>
+    function toggleUserMenu() {
+      document.getElementById('user-dropdown').classList.toggle('show');
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+
+    window.addEventListener('click', function(e) {
+      if (!e.target.closest('.user-menu-wrapper')) {
+        document.getElementById('user-dropdown').classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

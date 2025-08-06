@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage | Exclusive</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="/CSS/updated_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="hamburger" onclick="toggleMobileNav()">
+        <i class="fa fa-bars"></i>
+        </div>
+        <div class="logo">Exclusive</div>
+        <nav class="navbar" id="mobile-nav">
+        <a href="home.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        </nav>
+
+        <div class="header-actions">
+        <div class="search-container">
+            <input type="text" placeholder="What are you looking for?" />
+            <i class="fa fa-search search-icon"></i>
+        </div>
+        <div id="cart-icon" style="position: relative; cursor: pointer;">
+  <i class="fa fa-shopping-cart"></i>
+  <span id="cart-count" style="
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 2px 6px;
+  ">0</span>
+</div>
+
+<div id="header-cart" class="header-cart-dropdown"></div>
+
+        <div class="user-menu-wrapper">
+  <div class="user-icon" onclick="toggleUserMenu()">
+    <i class="fa-regular fa-user"></i>
+  </div>
+  <div id="user-dropdown" class="user-dropdown">
+    <img src="/Images/MY_FORMAL_IMG.jpg" alt="User" class="user-avatar">
+    <p class="user-name">Mahdy Daoud</p>
+    <p class="user-info">Age: 21</p>
+    <p class="user-info">Job: JS Full Stack Developer</p>
+    <button class="logout-btn" onclick="window.location.href='https://tinyurl.com/NTI-ST-FINAL-PROJECT'">Logout</button>
+  </div>
+</div>
+
+        </div>
+    </header>
+
+    <!-- Hero Section Slider -->
+    <section class="hero-slider">
+        <div class="slides-container">
+
+            <!-- Slide 1 -->
+            <div class="slide active">
+            <div class="hero-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" class="apple-logo">
+                <h4>iPhone 16 Pro Series</h4>
+                <h1>Up to 10% off<br>Voucher</h1>
+                <a href="#" class="cta-button" onclick="addToCart(1)">Buy Now →</a>
+            </div>
+            <div class="hero-image">
+                <img src="/Images/iphone_16pro.png" alt="iPhone 14" />
+            </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+            <div class="hero-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" class="apple-logo">
+                <h4>MacBook Air M2</h4>
+                <h1>Supercharged<br>Power</h1>
+                <a href="#" class="cta-button" onclick="addToCart(2)">Buy Now →</a>
+            </div>
+            <div class="hero-image">
+                <img src="/Images/mbp14.jfif" alt="MacBook Air M2" />
+            </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+            <div class="hero-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" class="apple-logo">
+                <h4>Apple Watch Series 9</h4>
+                <h1>Smarter.<br>Brighter.<br>Stronger.</h1>
+                <a href="#" class="cta-button" onclick="addToCart(3)">Buy Watches →</a>
+            </div>
+            <div class="hero-image">
+                <img src="/Images/product_se.png" alt="Apple Watch" />
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Flash Sales Section -->
+    <section class="flash-sales">
+        <div class="flash-header">
+            <div class="flash-title">
+                <div class="flash-tag">
+                <span class="tag-box"></span>
+                <span class="tag-text">Today’s</span>
+                </div>
+                <h2>Flash Sales</h2>
+            </div>
+            <div class="countdown" id="countdown">
+                <span><strong id="days">03</strong>d</span>
+                <span><strong id="hours">23</strong>h</span>
+                <span><strong id="minutes">59</strong>m</span>
+                <span><strong id="seconds">56</strong>s</span>
+            </div>
+        </div>
+
+        <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/gamepad.png" alt="Gamepad">
+            <span class="discount-badge">-40%</span>
+            <button class="add-to-cart" onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>HAVIT HV-G92 Gamepad</h4>
+            <p><span class="price-new">$50</span> <span class="price-old">$70</span></p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/keyboard.png" alt="Keyboard">
+            <span class="discount-badge">-20%</span>
+            <button class="add-to-cart" onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>AK-900 Wired Keyboard</h4>
+            <p><span class="price-new">$60</span> <span class="price-old">$75</span></p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/monitor.png" alt="Gaming Monitor">
+            <span class="discount-badge">-30%</span>
+            <button class="add-to-cart" onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>IPS LCD Gaming Monitor</h4>
+            <p><span class="price-new">$150</span> <span class="price-old">$200</span></p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/chair.png" alt="Chair">
+            <span class="discount-badge">-25%</span>
+            <button class="add-to-cart" onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>S-Series Comfort Chair</h4>
+            <p><span class="price-new">$120</span> <span class="price-old">$160</span></p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/product_se.png" alt="Smart Watch">
+            <span class="discount-badge">-15%</span>
+            <button class="add-to-cart" onclick="addToCart(8)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>Digital Smart Watch</h4>
+            <p><span class="price-new">$85</span> <span class="price-old">$100</span></p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="/Images/compare_airpods_max__b14s2x6q07rm_large_2x.png" alt="Headset">
+            <span class="discount-badge">-10%</span>
+            <button class="add-to-cart" onclick="addToCart(9)">Add to Cart</button>
+            </div>
+            <div class="product-info">
+            <h4>Surround Gaming Headset</h4>
+            <p><span class="price-new">$90</span> <span class="price-old">$100</span></p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Best Selling Products Section -->
+    <section class="best-sellers">
+    <div class="section-header">
+        <div class="section-tag">
+        <span class="tag-box"></span>
+        <span class="tag-text">This Month</span>
+        </div>
+        <h2>Best Selling Products</h2>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product Card 1 -->
+    <div class="product-card">
+    <div class="product-image">
+        <img src="/Images/north-coat.png" alt="The North Coat">
+    </div>
+    <div class="product-info">
+        <h4>The North Coat</h4>
+        <div class="stars">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-alt"></i>
+        <i class="fa fa-star-o"></i>
+        </div>
+        <p><span class="price-new">$260</span> <span class="price-old">$360</span></p>
+    </div>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+    <div class="product-image">
+        <img src="/Images/gucci-bag.png" alt="Gucci Duffel Bag">
+    </div>
+    <div class="product-info">
+        <h4>Gucci Duffel Bag</h4>
+        <div class="stars">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-alt"></i>
+        </div>
+        <p><span class="price-new">$180</span> <span class="price-old">$250</span></p>
+    </div>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="product-card">
+    <div class="product-image">
+        <img src="/Images/rgb-cooler.png" alt="RGB Liquid CPU Cooler">
+    </div>
+    <div class="product-info">
+        <h4>RGB Liquid CPU Cooler</h4>
+        <div class="stars">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        </div>
+        <p><span class="price-new">$120</span> <span class="price-old">$170</span></p>
+    </div>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div class="product-card">
+    <div class="product-image">
+        <img src="/Images/bookshelf.png" alt="Small Bookshelf">
+    </div>
+    <div class="product-info">
+        <h4>Small Bookshelf</h4>
+        <div class="stars">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-alt"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        </div>
+        <p><span class="price-new">$150</span> <span class="price-old">$200</span></p>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Music Experience Promo Section -->
+    <section class="music-promo">
+    <div class="music-content">
+        <span class="promo-label">Categories</span>
+        <h2>Enhance Your<br>Music Experience</h2>
+        <div class="music-countdown">
+        <div class="time-circle"><strong>23</strong><span>Hours</span></div>
+        <div class="time-circle"><strong>05</strong><span>Days</span></div>
+        <div class="time-circle"><strong>59</strong><span>Minutes</span></div>
+        <div class="time-circle"><strong>35</strong><span>Seconds</span></div>
+        </div>
+        <a href="#" class="buy-btn">Buy Now!</a>
+    </div>
+
+    <div class="music-image">
+        <img src="/Images/speaker.png" alt="JBL Speaker" />
+    </div>
+    </section>
+
+
+    <!-- Explore Our Products Section -->
+    <section class="explore-products">
+    <div class="section-header">
+        <div class="section-tag">
+        <span class="tag-box"></span>
+        <span class="tag-text">Our Products</span>
+        </div>
+        <h2>Explore Our Products</h2>
+    </div>
+
+    <div class="product-grid">
+    <!-- 1. Dog Food -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/dog-food.png" alt="Breed Dry Dog Food" />
+        <button class="add-to-cart" onclick="addToCart(14)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Breed Dry Dog Food</h4>
+        <div class="stars">
+            ★★★★☆ <span class="review-count">(35)</span>
+        </div>
+        <p><span class="price-new">$100</span></p>
+        </div>
+    </div>
+
+    <!-- 2. Camera -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/camera.png" alt="Canon EOS DSLR Camera" />
+        <button class="add-to-cart" onclick="addToCart(15)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Canon EOS DSLR Camera</h4>
+        <div class="stars">
+            ★★★★★ <span class="review-count">(95)</span>
+        </div>
+        <p><span class="price-new">$360</span></p>
+        </div>
+    </div>
+
+    <!-- 3. Laptop -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/laptop.png" alt="ASUS FHD Gaming Laptop" />
+        <button class="add-to-cart" onclick="addToCart(16)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>ASUS FHD Gaming Laptop</h4>
+        <div class="stars">
+            ★★★★★ <span class="review-count">(325)</span>
+        </div>
+        <p><span class="price-new">$700</span></p>
+        </div>
+    </div>
+
+    <!-- 4. Curology Set -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/curology.png" alt="Curology Product Set" />
+        <button class="add-to-cart" onclick="addToCart(17)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Curology Product Set</h4>
+        <div class="stars">
+            ★★★★☆ <span class="review-count">(145)</span>
+        </div>
+        <p><span class="price-new">$500</span></p>
+        </div>
+    </div>
+
+    <!-- 5. Electric Car (NEW) -->
+    <div class="product-card">
+        <div class="product-image">
+        <span class="new-badge">NEW</span>
+        <img src="/Images/kids-car.png" alt="Kids Electric Car" />
+        <button class="add-to-cart" onclick="addToCart(18)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Kids Electric Car</h4>
+        <div class="stars">
+            ★★★★★ <span class="review-count">(65)</span>
+        </div>
+        <p><span class="price-new">$960</span></p>
+        <div class="colors">
+            <span class="color red"></span>
+            <span class="color black"></span>
+        </div>
+        </div>
+    </div>
+
+    <!-- 6. Soccer Cleats -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/cleats.png" alt="Jr. Zoom Soccer Cleats" />
+        <button class="add-to-cart" onclick="addToCart(19)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Jr. Zoom Soccer Cleats</h4>
+        <div class="stars">
+            ★★★★☆ <span class="review-count">(35)</span>
+        </div>
+        <p><span class="price-new">$1160</span></p>
+        <div class="colors">
+            <span class="color yellow"></span>
+            <span class="color black"></span>
+        </div>
+        </div>
+    </div>
+
+    <!-- 7. Gamepad (NEW) -->
+    <div class="product-card">
+        <div class="product-image">
+        <span class="new-badge">NEW</span>
+        <img src="/Images/Frame 608.png" alt="GP11 Shooter USB Gamepad" />
+        <button class="add-to-cart" onclick="addToCart(20)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>GP11 Shooter USB Gamepad</h4>
+        <div class="stars">
+            ★★★★☆ <span class="review-count">(55)</span>
+        </div>
+        <p><span class="price-new">$660</span></p>
+        <div class="colors">
+            <span class="color black"></span>
+            <span class="color red"></span>
+        </div>
+        </div>
+    </div>
+
+    <!-- 8. Jacket -->
+    <div class="product-card">
+        <div class="product-image">
+        <img src="/Images/jacket.png" alt="Quilted Satin Jacket" />
+        <button class="add-to-cart" onclick="addToCart(21)">Add to Cart</button>
+        </div>
+        <div class="product-info">
+        <h4>Quilted Satin Jacket</h4>
+        <div class="stars">
+            ★★★★☆ <span class="review-count">(55)</span>
+        </div>
+        <p><span class="price-new">$660</span></p>
+        <div class="colors">
+            <span class="color green"></span>
+            <span class="color red"></span>
+        </div>
+        </div>
+    </div>
+    </div>
+    </section>
+
+
+    <!-- New Arrival Section -->
+    <section class="new-arrival">
+    <div class="section-header">
+        <div class="section-tag">
+        <span class="tag-box"></span>
+        <span class="tag-text">Featured</span>
+        </div>
+        <h2>New Arrival</h2>
+    </div>
+
+    <div class="arrival-grid">
+        <!-- Left Large Card -->
+        <div class="arrival-card large">
+        <img src="/Images/ps5.png" alt="PlayStation 5" />
+        <div class="arrival-content">
+            <h3>PlayStation 5</h3>
+            <p>Black and White version of the PS5 coming out on sale.</p>
+            <a href="#" onclick="addToCart(22)">Buy Now!</a>
+        </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="arrival-right">
+        <!-- Top Card -->
+        <div class="arrival-card horizontal">
+            <img src="/Images/woman.png" alt="Women's Collection" />
+            <div class="arrival-content">
+            <h3>Women’s Collections</h3>
+            <p>Featured woman collections that give you another vibe.</p>
+            <a href="#" onclick="addToCart(23)">Buy Now!</a>
+            </div>
+        </div>
+
+        <div class="bottom-cards">
+            <!-- Speaker -->
+            <div class="arrival-card">
+            <img src="/Images/speakers.png" alt="Speakers" />
+            <div class="arrival-content">
+                <h3>Speakers</h3>
+                <p>Amazon wireless speakers</p>
+                <a href="#" onclick="addToCart(24)">Buy Now!</a>
+            </div>
+            </div>
+
+            <!-- Perfume -->
+            <div class="arrival-card">
+            <img src="/Images/perfume.png" alt="Perfume" />
+            <div class="arrival-content">
+                <h3>Perfume</h3>
+                <p>GUCCI INTENSE OUD EDP</p>
+                <a href="#" onclick="addToCart(25)">Buy Now!</a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Service Highlights Section -->
+    <section class="service-highlights">
+    <div class="highlight-grid">
+        <!-- Highlight 1 -->
+        <div class="highlight-item">
+        <div class="highlight-icon">
+            <i class="fa fa-truck"></i>
+        </div>
+        <h4>FREE AND FAST DELIVERY</h4>
+        <p>Free delivery for all orders over $140</p>
+        </div>
+
+        <!-- Highlight 2 -->
+        <div class="highlight-item">
+        <div class="highlight-icon">
+            <i class="fa fa-headphones-alt"></i>
+        </div>
+        <h4>24/7 CUSTOMER SERVICE</h4>
+        <p>Friendly 24/7 customer support</p>
+        </div>
+
+        <!-- Highlight 3 -->
+        <div class="highlight-item">
+        <div class="highlight-icon">
+            <i class="fa fa-check-circle"></i>
+        </div>
+        <h4>MONEY BACK GUARANTEE</h4>
+        <p>We return money within 30 days</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+    <div class="footer-content">
+        <!-- Subscribe -->
+        <div class="footer-column">
+        <h4 class="logo lg">Exclusive</h4>
+        <p>Subscribe</p>
+        <small>Get 10% off your first order</small>
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit"><i class="fa fa-paper-plane"></i></button>
+        </form>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-column">
+        <h4>Support</h4>
+        <p>112 Tal Mansoura, Dakahliya,<br>DH 1515, Egypt.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+201127283385</p>
+        </div>
+        <!-- Download App -->
+        <div class="footer-column">
+        <h4>Follow Us</h4>
+        <small>Save $3 with App New User Only</small><br />
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; Copyright Rimel 2022. All right reserved</p>
+    </div>
+    </footer>
+<script>
+  window.addEventListener("click", function (e) {
+    const cartDropdown = document.getElementById("header-cart");
+    const cartIcon = document.getElementById("cart-icon");
+
+    const userDropdown = document.getElementById("user-dropdown");
+    const userMenu = document.querySelector(".user-menu-wrapper");
+
+    // 🔒 Hide user dropdown if clicked outside
+    if (!e.target.closest(".user-menu-wrapper")) {
+      userDropdown?.classList.remove("show");
+    }
+
+    // 🔒 Hide cart dropdown if clicked outside cart icon & dropdown
+    if (!e.target.closest("#header-cart") && !e.target.closest("#cart-icon")) {
+      cartDropdown?.classList.remove("visible");
+    }
+  });
+</script>
+
+<script>
+  function toggleUserMenu() {
+    document.getElementById('user-dropdown').classList.toggle('show');
+  }
+
+  function logout() {
+    // Optional: Clear user data here
+    window.location.href = '/index.html'; // Replace with your actual login page
+  }
+
+  // Optional: close dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!e.target.closest('.user-menu-wrapper')) {
+      document.getElementById('user-dropdown').classList.remove('show');
+    }
+  });
+</script>
+<script>
+  function toggleMobileNav() {
+    const nav = document.getElementById("mobile-nav");
+    nav.classList.toggle("open");
+  }
+</script>
+
+<script src="/JS/countdown.js"></script>
+<script src="/JS/product-cart-handler.js"></script>
+<script src="/JS/slider.js"></script>
+</body>
+</html>

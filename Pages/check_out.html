@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | Exclusive</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="/CSS/styles.css" rel="stylesheet"/> <!-- Assume this contains global styles -->
+<link href="/CSS/checkout.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+// Place Order Button Logic
+const placeOrderBtn = document.querySelector(".place-order");
+const billingForm = document.getElementById("billing-form");
+
+placeOrderBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Validate billing inputs
+  const requiredFields = billingForm.querySelectorAll("input[required]");
+  let allFilled = true;
+
+  requiredFields.forEach(input => {
+    if (!input.value.trim()) {
+      input.style.borderColor = "red";
+      allFilled = false;
+    } else {
+      input.style.borderColor = "#ccc";
+    }
+  });
+
+  if (!allFilled) {
+    Swal.fire("Incomplete", "Please fill in all required fields.", "warning");
+    return;
+  }
+
+  // Confirm order
+  Swal.fire({
+    title: "Confirm Order",
+    text: "Do you want to place this order?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Yes, place it!",
+    cancelButtonText: "Cancel"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Clear cart
+      localStorage.removeItem("cart");
+
+      Swal.fire({
+        title: "Order Placed!",
+        text: "Thank you for your purchase.",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then(() => {
+        // Redirect or reset form
+        window.location.href = "index.html"; // change if needed
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+<!-- Header -->
+  <header class="main-header">
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="logo">Exclusive</div>
+
+    <nav class="navbar" id="mobile-nav">
+      <a href="home.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" placeholder="What are you looking for?" />
+        <i class="fa fa-search search-icon"></i>
+      </div>
+
+      <div id="header-cart" class="header-cart-dropdown"></div>
+
+      <div class="user-menu-wrapper">
+        <div class="user-icon" onclick="toggleUserMenu()">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <div id="user-dropdown" class="user-dropdown">
+          <img src="/Images/MY_FORMAL_IMG.jpg" alt="User" class="user-avatar">
+          <p class="user-name">Mahdy Daoud</p>
+          <p class="user-info">Age: 21</p>
+          <p class="user-info">Job: JS Full Stack Developer</p>
+          <button class="logout-btn" onclick="window.location.href='https://tinyurl.com/NTI-ST-FINAL-PROJECT'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- Checkout Content -->
+<section class="checkout-section">
+<div class="checkout-wrapper">
+<!-- Billing Form -->
+<div class="billing-details">
+<h2>Billing Details</h2>
+<form id="billing-form">
+<input placeholder="First Name*" required="" type="text"/>
+<input placeholder="Company Name" type="text"/>
+<input placeholder="Street Address*" required="" type="text"/>
+<input placeholder="Apartment, floor, etc. (optional)" type="text"/>
+<select id="governorate" required="" style="display:block; width:100%; padding:12px; margin-bottom:16px; border:1px solid #ccc; border-radius:6px;">
+<option value="">Select Governorate*</option>
+<option value="Cairo">Cairo</option>
+<option value="Giza">Giza</option>
+<option value="Alexandria">Alexandria</option>
+</select>
+<select id="city" required="" style="display:block; width:100%; padding:12px; margin-bottom:16px; border:1px solid #ccc; border-radius:6px;">
+<option value="">Select City*</option>
+</select>
+<input placeholder="Phone Number*" required="" type="tel"/>
+<input placeholder="Email Address*" required="" type="email"/>
+
+</form>
+</div>
+<!-- Order Summary -->
+<div class="order-summary">
+<div id="cart-items"></div>
+<div class="totals">
+<p><strong>Subtotal:</strong> <span id="subtotal">$0</span></p>
+<hr/>
+<p><strong>Shipping:</strong> <span>Free</span></p>
+<hr/>
+<p><strong>Total:</strong> <span id="total">$0</span></p>
+</div>
+<div class="payment-methods">
+<label><input checked="" name="payment" type="radio"/> Cash on delivery</label> <del>Try 'mahdy' to make free order</del>
+</div>
+<div class="coupon-box">
+<input placeholder="Coupon Code" type="text"/>
+<button class="apply-btn">Apply Coupon</button>
+</div>
+</div>
+
+<button class="place-order">Place Order</button>
+</div>
+
+</section>
+<!-- Footer (same as homepage) -->
+<footer class="site-footer">
+<div class="footer-content">
+<div class="footer-column">
+<h4>Exclusive</h4>
+<p>Subscribe</p>
+<small>Get 10% off your first order</small>
+<form class="subscribe-form">
+<input placeholder="Enter your email" type="email"/>
+<button type="submit"><i class="fa fa-paper-plane"></i></button>
+</form>
+</div>
+<!-- Support -->
+        <div class="footer-column">
+        <h4>Support</h4>
+        <p>112 Tal Mansoura, Dakahliya,<br>DH 1515, Egypt.</p>
+        <p>exclusive@gmail.com</p>
+        <p>+201127283385</p>
+        </div>
+
+<div class="footer-column">
+<h4>Follow Us</h4>
+<small>Save $3 with App New User Only</small><br>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</img></br></div>
+</div>
+<div class="footer-bottom">
+<p>© Copyright Rimel 2022. All right reserved</p>
+</div>
+</footer>
+<!-- JS to Load Cart -->
+ <script>
+  function toggleUserMenu() {
+    document.getElementById('user-dropdown').classList.toggle('show');
+  }
+
+  function logout() {
+    // Optional: Clear user data here
+    window.location.href = 'login.html'; // Replace with your actual login page
+  }
+
+  // Optional: close dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!e.target.closest('.user-menu-wrapper')) {
+      document.getElementById('user-dropdown').classList.remove('show');
+    }
+  });
+</script>
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const cartItemsEl = document.getElementById("cart-items");
+  const subtotalEl = document.getElementById("subtotal");
+  const totalEl = document.getElementById("total");
+
+  let subtotal = 0;
+  cartItemsEl.innerHTML = ""; // Clear any previous items
+
+  cart.forEach((item) => {
+    subtotal += item.price * item.quantity;
+
+    const itemEl = document.createElement("div");
+    itemEl.className = "cart-item";
+    itemEl.innerHTML = `
+      <div class="cart-item-info">
+        <img src="${item.image}" alt="${item.name}">
+        <span>${item.name} x${item.quantity}</span>
+      </div>
+      <span>$${item.price * item.quantity}</span>
+    `;
+
+    cartItemsEl.appendChild(itemEl);
+  });
+
+  if (subtotalEl) subtotalEl.textContent = `$${subtotal}`;
+  if (totalEl) totalEl.textContent = `$${subtotal}`;
+
+  // Apply Coupon Logic
+  const applyBtn = document.querySelector(".apply-btn");
+  const couponInput = document.querySelector(".coupon-box input");
+
+  if (applyBtn && couponInput) {
+    applyBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const code = couponInput.value.trim().toLowerCase();
+      if (code === "mahdy") {
+        subtotalEl.textContent = "$0";
+        totalEl.textContent = "$0";
+        Swal.fire('Success!', "Coupon 'mahdy' applied: your order is now FREE!", 'success');
+      } else {
+        Swal.fire('Oops!', 'Invalid coupon code', 'error');
+      }
+    });
+  }
+
+// Place Order Button Logic
+const placeOrderBtn = document.querySelector(".place-order");
+const billingForm = document.getElementById("billing-form");
+
+placeOrderBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Validate billing inputs
+  const requiredFields = billingForm.querySelectorAll("input[required]");
+  let allFilled = true;
+
+  requiredFields.forEach(input => {
+    if (!input.value.trim()) {
+      input.style.borderColor = "red";
+      allFilled = false;
+    } else {
+      input.style.borderColor = "#ccc";
+    }
+  });
+
+  if (!allFilled) {
+    Swal.fire("Incomplete", "Please fill in all required fields.", "warning");
+    return;
+  }
+
+  // Confirm order
+  Swal.fire({
+    title: "Confirm Order",
+    text: "Do you want to place this order?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Yes, place it!",
+    cancelButtonText: "Cancel"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Clear cart
+      localStorage.removeItem("cart");
+
+      Swal.fire({
+        title: "Order Placed!",
+        text: "Thank you for your purchase.",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then(() => {
+        // Redirect or reset form
+        window.location.href = "home.html"; // change if needed
+      });
+    }
+  });
+});
+</script>
+<script src="/JS/product-cart-handler.js">
+  // Apply Coupon Logic
+  const applyBtn = document.querySelector(".apply-btn");
+  const couponInput = document.querySelector(".coupon-box input");
+
+  if (applyBtn && couponInput) {
+    applyBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const code = couponInput.value.trim().toLowerCase();
+      if (code === "mahdy") {
+        subtotalEl.textContent = "$0";
+        totalEl.textContent = "$0";
+        Swal.fire('Success!', "Coupon 'mahdy' applied: your order is now FREE!", 'success');
+      } else {
+        Swal.fire('Oops!', 'Invalid coupon code', 'error');
+      }
+    });
+  }
+
+// Place Order Button Logic
+const placeOrderBtn = document.querySelector(".place-order");
+const billingForm = document.getElementById("billing-form");
+
+placeOrderBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Validate billing inputs
+  const requiredFields = billingForm.querySelectorAll("input[required]");
+  let allFilled = true;
+
+  requiredFields.forEach(input => {
+    if (!input.value.trim()) {
+      input.style.borderColor = "red";
+      allFilled = false;
+    } else {
+      input.style.borderColor = "#ccc";
+    }
+  });
+
+  if (!allFilled) {
+    Swal.fire("Incomplete", "Please fill in all required fields.", "warning");
+    return;
+  }
+
+  // Confirm order
+  Swal.fire({
+    title: "Confirm Order",
+    text: "Do you want to place this order?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Yes, place it!",
+    cancelButtonText: "Cancel"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Clear cart
+      localStorage.removeItem("cart");
+
+      Swal.fire({
+        title: "Order Placed!",
+        text: "Thank you for your purchase.",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then(() => {
+        // Redirect or reset form
+        window.location.href = "/index.html"; // change if needed
+      });
+    }
+  });
+});
+</script>
+
+<script>
+  const governorateSelect = document.getElementById("governorate");
+  const citySelect = document.getElementById("city");
+
+  const cityMap = {
+    Cairo: ["Nasr City", "Heliopolis", "Maadi"],
+    Giza: ["Dokki", "Mohandessin", "6th October"],
+    Alexandria: ["Smouha", "Sidi Gaber", "Stanley"]
+  };
+
+  governorateSelect.addEventListener("change", function () {
+    const selectedGov = this.value;
+    citySelect.innerHTML = '<option value="">Select City*</option>';
+    if (cityMap[selectedGov]) {
+      cityMap[selectedGov].forEach(city => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      });
+    }
+  });
+</script>
+
+<script>
+  function toggleMobileNav() {
+    const nav = document.getElementById("mobile-nav");
+    nav.classList.toggle("open");
+  }
+</script>
+<script src="/JS/product-cart-handler.js"></script>
+</body>
+</html>
